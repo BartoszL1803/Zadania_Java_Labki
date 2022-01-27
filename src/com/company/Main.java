@@ -17,6 +17,9 @@ public class Main {
         me.lastName = "Lissowski";
         me.car = car1;
 
+        me.setSalary(2000);
+        me.getSalary();
+
         cat.feed();
         cat.takeForAWalk();
         cat.takeForAWalk();
