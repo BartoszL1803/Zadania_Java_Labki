@@ -1,5 +1,7 @@
 package com.company;
 
+import devices.Car;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,6 +21,8 @@ public class Main {
         car2.color = "black";
         car2.value = 13500.0;
 
+        System.out.println(car1.equals(car2));
+
         Human me = new Human();
         me.firstName = "Bartosz";
         me.lastName = "Lissowski";
@@ -33,5 +37,9 @@ public class Main {
         cat.takeForAWalk();
         cat.takeForAWalk();
         cat.takeForAWalk();
+
+        System.out.println(cat);
+        System.out.println(me);
+        System.out.println(car2);
     }
 }

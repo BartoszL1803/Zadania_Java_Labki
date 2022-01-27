@@ -32,4 +32,8 @@ public class Animal {
             System.out.println("You can't take your animal for a walk beacause is dead.");
         }else this.weight--;
     }
+
+    public String toString() {
+        return species +" "+ name;
+    }
 }

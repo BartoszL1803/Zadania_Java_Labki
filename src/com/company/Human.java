@@ -1,5 +1,7 @@
 package com.company;
 
+import devices.Car;
+
 public class Human {
 
     String firstName;
@@ -38,5 +40,9 @@ public class Human {
         System.out.println("musisz odebrać aneks do umowy od pani Hani z kadr");
         System.out.println("ZUS i US wiedzą o zmianie wypłaty nie ma sensu ukrywać dochodu");
         this.salary = num;
+    }
+
+    public String toString() {
+        return firstName +" "+ lastName;
     }
 }
