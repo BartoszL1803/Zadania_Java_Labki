@@ -7,6 +7,7 @@ public class Car {
     Integer yearOfProduction;
     Double millage;
     String color;
+    Double value;
 
     public Car(String producer, String model) {
         this.producer = producer;
