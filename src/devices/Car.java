@@ -1,17 +1,13 @@
 package devices;
 
-public class Car {
+public class Car extends Device{
 
-    final String producer;
-    final String model;
-    public Integer yearOfProduction;
     public Double millage;
     public String color;
     public Double value;
 
-    public Car(String producer, String model) {
-        this.producer = producer;
-        this.model = model;
+    public Car(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
     }
 
     public boolean equals(Car car) {
@@ -29,7 +25,7 @@ public class Car {
         }
     }
 
-    public String toString() {
-        return producer +" "+ model +" "+ yearOfProduction;
+    public void turnOn() {
+        System.out.println("przekręcasz kluczyk");
     }
 }
