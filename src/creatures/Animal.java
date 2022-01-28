@@ -1,36 +1,39 @@
-package com.company;
+package creatures;
 
-public class Animal implements Saleable {
+import com.company.Human;
+import com.company.Saleable;
+
+public abstract class Animal implements Saleable, Feedable {
 
     final String species;
-    private Double weight;
-    Boolean alive;
-    String name;
-    Boolean forSale;
+    public Double weight;
+    public String name;
+    public Boolean alive;
+    public Boolean forSale;
 
-    Animal(String species) {
+    public Animal(String species, Double weight) {
         this.species = species;
-        alive = true;
-
-
-        if (this.species == "canis") {
-            this.weight = 10.0;
-        } else if (this.species == "felis") {
-            this.weight = 2.0;
-        } else {
-            this.weight = 1.0;
-        }
+        this.weight = weight;
+        this.alive = true;
     }
 
-    void feed() {
+    public void feed() {
         if (this.weight <= 0.0){
-            System.out.println("You can't feed a dead animal.");
+            System.out.println("N");
         }else this.weight++;
     }
-    void takeForAWalk() {
+
+    public void feed(Double foodWeight) {
+        if (this.weight <= 0.0){
+            System.out.println("nie możesz nakarmić martwego zwierzaka.");
+        }else this.weight += foodWeight;
+        System.out.println("waga twojego zwierzaka: "+ weight);
+    }
+
+    public void takeForAWalk() {
         if (this.weight <= 0.0){
             alive = false;
-            System.out.println("You can't take your animal for a walk beacause is dead.");
+            System.out.println("nie możesz ciągnąć zwłok po ulicy.");
         }else this.weight--;
     }
 
