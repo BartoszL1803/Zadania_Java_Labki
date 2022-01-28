@@ -1,14 +1,23 @@
 package com.company;
 
 import devices.Car;
+import devices.Phone;
 
 public class Human {
 
     String firstName;
     String lastName;
     Animal pet;
-    private Car car;
+    public Car car;
     private Double salary;
+    public Double cash;
+    public Phone mobile;
+    public Animal animal;
+    public Boolean forSale;
+
+    Human() {
+        forSale = false;
+    }
 
     public Car getCar() {
         return this.car;

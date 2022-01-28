@@ -1,11 +1,12 @@
 package com.company;
 
-public class Animal {
+public class Animal implements Saleable {
 
     final String species;
     private Double weight;
     Boolean alive;
     String name;
+    Boolean forSale;
 
     Animal(String species) {
         this.species = species;
@@ -35,5 +36,17 @@ public class Animal {
 
     public String toString() {
         return species +" "+ name;
+    }
+
+    public void sell(Human seller, Human buyer, Double price) {
+        if (this.forSale == true && buyer.cash >= price) {
+            buyer.animal = this;
+            seller.animal = null;
+            buyer.cash -= price;
+            seller.cash += price;
+            System.out.println(buyer.toString() +" kupił od "+ seller.toString() +" zwierzę "+ this.toString());
+        }else {
+            System.out.println("ta transakcja jest nie możliwa do przeprowadzenia ze względów ekonomicznych lub etycznych!");
+        }
     }
 }
