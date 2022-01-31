@@ -2,12 +2,16 @@ package com.company;
 
 import creatures.FarmAnimal;
 import creatures.Pet;
-import devices.Car;
-import devices.Phone;
+import devices.*;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
 
         Pet cat = new Pet("felis", 2.0);
         cat.name = "Futrzak";
@@ -16,19 +20,21 @@ public class Main {
         dog.name = "Pieseł";
         dog.forSale = false;
 
-        FarmAnimal pig =new FarmAnimal("sus domestica", 350.0);
+        FarmAnimal pig = new FarmAnimal("sus domestica", 350.0);
         pig.name = "Pepa";
 
-        Car car1 = new Car("Renault", "Megane", 2011);
+        Disel car1 = new Disel("Renault", "Megane", 2011);
         car1.millage = 120000.0;
         car1.color = "grey";
         car1.value = 22000.0;
         car1.forSale = true;
 
-        Car car2 = new Car("BMW", "E36", 2002);
+        LPG car2 = new LPG("BMW", "E36", 2002);
         car2.millage = 220000.0;
         car2.color = "black";
         car2.value = 13500.0;
+
+        Electric car3 = new Electric("Tesla", "X", 2020);
 
         System.out.println(car1.equals(car2));
 
@@ -78,5 +84,25 @@ public class Main {
         pig.beEaten();
 
         dog.feed(5.0);
+
+        phone1.installAnApp("Youtube");
+
+        phone1.installAnApp("Notepad", "1.13");
+
+        phone1.installAnApp("Cda.pl", "1.08", "Cda.pl");
+
+        List<String> appNames = new LinkedList<>();
+        appNames.add("Facebook");
+        appNames.add("Instagram");
+
+        phone1.installAnApp(appNames);
+
+        URL url1 = new URL("https","wsb.pl",442,"Extranet-1.6");
+
+        phone2.installAnApp(url1);
+
+        car1.refuel();
+        car2.refuel();
+        car3.refuel();
     }
 }

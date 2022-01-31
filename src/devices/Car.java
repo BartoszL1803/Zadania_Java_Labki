@@ -3,7 +3,7 @@ package devices;
 import com.company.Human;
 import com.company.Saleable;
 
-public class Car extends Device implements Saleable {
+public abstract class Car extends Device implements Saleable {
 
     public Double millage;
     public String color;
@@ -44,4 +44,6 @@ public class Car extends Device implements Saleable {
             System.out.println("ta transakcja jest nie możliwa do przeprowadzenia ze względów ekonomicznych lub etycznych!");
         }
     }
+
+    public abstract void refuel();
 }
