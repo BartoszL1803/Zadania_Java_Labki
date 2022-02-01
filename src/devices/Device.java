@@ -4,6 +4,11 @@ public abstract class Device {
     final String producer;
     final String model;
     final Integer yearOfProduction;
+    public Double value;
+
+    public Integer getYearOfProduction() {
+        return yearOfProduction;
+    }
 
     public Device(String producer, String model, Integer yearOfProduction) {
         this.producer = producer;

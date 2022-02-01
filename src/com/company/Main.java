@@ -6,6 +6,8 @@ import devices.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,15 +28,19 @@ public class Main {
         Disel car1 = new Disel("Renault", "Megane", 2011);
         car1.millage = 120000.0;
         car1.color = "grey";
-        car1.value = 22000.0;
+        car1.value = 15000.0;
         car1.forSale = true;
 
         LPG car2 = new LPG("BMW", "E36", 2002);
         car2.millage = 220000.0;
         car2.color = "black";
-        car2.value = 13500.0;
+        car2.value = 15000.0;
 
         Electric car3 = new Electric("Tesla", "X", 2020);
+        car3.value = 10000.0;
+
+        LPG car4 = new LPG("VW","Golf",2005);
+        car4.value = 8000.0;
 
         System.out.println(car1.equals(car2));
 
@@ -55,12 +61,12 @@ public class Main {
         Human human2 = new Human();
         human2.firstName = "Janusz";
         human2.lastName = "Polak";
-        human2.cash = 1000.0;
+        human2.cash = 50000.0;
+
+        human2.setSalary(20000);
 
         me.setSalary(3600);
         me.getSalary();
-
-        me.setCar(car2);
 
         cat.feed();
         cat.takeForAWalk();
@@ -76,9 +82,8 @@ public class Main {
         car2.turnOn();
         phone1.turnOn();
 
-        dog.sell(human2, me, 1000.0);
-        phone1.sell(me, human2, 799.0);
-        car1.sell(human2, me, 20000.0);
+        //dog.sell(human2, me, 1000.0);
+        //phone1.sell(me, human2, 799.0);
 
         pig.beEaten();
         pig.beEaten();
@@ -104,5 +109,29 @@ public class Main {
         car1.refuel();
         car2.refuel();
         car3.refuel();
+
+        me.setCar(car1,2);
+        me.setCar(car4,1);
+        me.setCar(car3,0);
+
+        human2.setCar(car2,1);
+
+        me.garageValue();
+
+        me.sortGarage();
+
+        human2.garageValue();
+
+        human2.sortGarage();
+
+        car4.sell(me,human2,5000.0);
+
+        me.garageValue();
+
+        me.sortGarage();
+
+        human2.garageValue();
+
+        human2.sortGarage();
     }
 }

@@ -7,7 +7,6 @@ public abstract class Car extends Device implements Saleable {
 
     public Double millage;
     public String color;
-    public Double value;
     public Boolean forSale;
 
     public Car(String producer, String model, Integer yearOfProduction) {
@@ -34,15 +33,21 @@ public abstract class Car extends Device implements Saleable {
     }
 
     public void sell(Human seller, Human buyer, Double price) {
-        if (this.forSale == true && buyer.cash >= price) {
-            buyer.car = this;
-            seller.car = null;
-            buyer.cash -= price;
-            seller.cash += price;
-            System.out.println(buyer.toString() +" kupił od "+ seller.toString() +" samochód "+ this.toString());
-        }else {
-            System.out.println("ta transakcja jest nie możliwa do przeprowadzenia ze względów ekonomicznych lub etycznych!");
-        }
+       if (buyer.cash < price) {
+           System.out.println("kupiec nie ma pieniędzy na przeprowadzenie transakcji");
+       } else if (!buyer.hasFreeParkingLot()) {
+           System.out.println("kupiec nie ma wolnego miejsca parkingowego");
+       }else if (!seller.hasCar(this)) {
+           System.out.println("sprzedawca nie posiada takiego samochodu");
+       } else {
+           seller.garage[seller.removeCar(this)] = null;
+           buyer.garage[buyer.addCar()] = this;
+           seller.cash += price;
+           buyer.cash -= price;
+           System.out.println(buyer +" kupił od "+ seller +" samochód "+ this);
+           System.out.println("gotówka sprzedającego: " +seller.cash);
+           System.out.println("gotówka kupca: " +buyer.cash);
+       }
     }
 
     public abstract void refuel();
