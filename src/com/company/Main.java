@@ -63,6 +63,11 @@ public class Main {
         human2.lastName = "Polak";
         human2.cash = 50000.0;
 
+        Human human3 = new Human();
+        human3.firstName = "Andrzej";
+        human3.lastName = "Tosieuda";
+        human3.cash = 50000.0;
+
         human2.setSalary(20000);
 
         me.setSalary(3600);
@@ -133,5 +138,25 @@ public class Main {
         human2.garageValue();
 
         human2.sortGarage();
+
+        car4.showOwners();
+
+        car4.actualOwner();
+
+        car1.actualOwner();
+
+        car2.everOwner(me);
+        car2.everOwner(human2);
+        car4.everOwner(me);
+        car4.everOwner(human2);
+
+        car4.everTrade(me,human2);
+
+        car4.numberOfTransaction();
+
+        car4.sell(human2,human3,5000.0);
+        car4.numberOfTransaction();
+
+        car1.numberOfTransaction();
     }
 }

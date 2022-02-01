@@ -29,9 +29,11 @@ public class Human {
         if (this.salary > car.value) {
             System.out.println("stać cie na kupno samochodu: "+ car +", za gotówe");
             this.garage[parkingLotNumber] = car;
+            car.owners.add(this);
         }else if (this.salary > car.value/12 ) {
             System.out.println ("udało się kupić samochód: "+ car +", niestety na kredyt");
             this.garage[parkingLotNumber] = car;
+            car.owners.add(this);
         }else {
             System.out.println("nie stać cie na samochód: "+ car +", musisz poszukać lepiej płatnej pracy");
         }
@@ -72,6 +74,13 @@ public class Human {
             }
         }
         return false;
+    }
+
+    public boolean isOwner(Car car, Human human) {
+      if(human == car.owners.get(car.owners.size()-1)) {
+          return true;
+      }
+      return false;
     }
 
     public double getSalary() {
