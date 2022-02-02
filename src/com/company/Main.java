@@ -6,8 +6,6 @@ import devices.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -158,5 +156,33 @@ public class Main {
         car4.numberOfTransaction();
 
         car1.numberOfTransaction();
+
+        Application app1 = new Application("Facebook",2.0,7.0);
+        Application app2 = new Application("Youtube",1.0,0.0);
+        Application app3 = new Application("Instagram",1.3,11.0);
+        Application app4 = new Application("Netflix",1.5,0.0);
+        Application app5 = new Application("Notepad pro",1.7,20.0);
+
+        phone1.buyAndInstall(me,app1);
+        phone1.buyAndInstall(me,app2);
+        phone1.buyAndInstall(me,app3);
+        phone1.buyAndInstall(me,app4);
+        //phone1.buyAndInstall(me,app5);
+
+        System.out.println(phone1.listOfApp.toString());
+
+        phone1.checkApp(app1);
+        phone2.checkApp(app1);
+
+        phone1.checkAppWithName("Facebook");
+        phone1.checkAppWithName("Notepad pro");
+
+        phone1.showFreeApp();
+
+        phone1.installedAppValue();
+
+        phone1.showAppAlphabetically();
+
+        phone1.showAppPriceAsc();
     }
 }
